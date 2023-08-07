@@ -6,8 +6,11 @@ class QuestionsTest < ApplicationSystemTestCase
   #
   #   assert_selector "h1", text: "Questions"
   # end
-  test "visiting /ask renders the form" do
+  test "saying Hello yields a grumpy response from the coach" do
     visit ask_url
-    assert_selector "p", text: "Ask your coach anything"
+    fill_in "question", with: "Hello?"
+    click_on "Ask"
+
+    assert_text "Silly question, get dressed and go to work!"
   end
 end
